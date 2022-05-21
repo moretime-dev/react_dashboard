@@ -18,10 +18,10 @@ interface StateInterface {
   handleClick: React.Dispatch<React.SetStateAction<any>>;
   isClicked: initialStateType;
   initialState: initialStateType;
-  setIsClicked: React.Dispatch<React.SetStateAction<any>>;
-  setActiveMenu: React.Dispatch<React.SetStateAction<any>>;
-  setCurrentColor: React.Dispatch<React.SetStateAction<any>>;
-  setCurrentMode: React.Dispatch<React.SetStateAction<any>>;
+  setIsClicked: React.Dispatch<React.SetStateAction<initialStateType>>;
+  setActiveMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  setCurrentColor: React.Dispatch<React.SetStateAction<string>>;
+  setCurrentMode: React.Dispatch<React.SetStateAction<string>>;
   setMode: React.Dispatch<React.SetStateAction<any>>;
   setColor: React.Dispatch<React.SetStateAction<any>>;
   themeSettings: boolean;
