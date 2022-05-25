@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 
 const initialState = {
   chat: false,
@@ -10,25 +10,30 @@ const initialState = {
 type initialStateType = typeof initialState;
 
 interface StateInterface {
-  currentColor: string;
-  currentMode: string;
+  // currentColor: string;
+  // currentMode: string;
   activeMenu: boolean;
-  screenSize: string | undefined;
-  setScreenSize: React.Dispatch<React.SetStateAction<any>>;
-  handleClick: React.Dispatch<React.SetStateAction<any>>;
-  isClicked: initialStateType;
-  initialState: initialStateType;
-  setIsClicked: React.Dispatch<React.SetStateAction<initialStateType>>;
+  // screenSize: string | undefined;
+  // setScreenSize: React.Dispatch<React.SetStateAction<any>>;
+  // handleClick: React.Dispatch<React.SetStateAction<any>>;
+  // isClicked: initialStateType;
+  // initialState: initialStateType;
+  // setIsClicked: React.Dispatch<React.SetStateAction<initialStateType>>;
   setActiveMenu: React.Dispatch<React.SetStateAction<boolean>>;
-  setCurrentColor: React.Dispatch<React.SetStateAction<string>>;
-  setCurrentMode: React.Dispatch<React.SetStateAction<string>>;
-  setMode: React.Dispatch<React.SetStateAction<any>>;
-  setColor: React.Dispatch<React.SetStateAction<any>>;
-  themeSettings: boolean;
-  setThemeSettings: React.Dispatch<React.SetStateAction<any>>;
+  // setCurrentColor: React.Dispatch<React.SetStateAction<string>>;
+  // setCurrentMode: React.Dispatch<React.SetStateAction<string>>;
+  // setMode: React.Dispatch<React.SetStateAction<any>>;
+  // setColor: React.Dispatch<React.SetStateAction<any>>;
+  // themeSettings: boolean;
+  // setThemeSettings: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const StateContext = React.createContext<StateInterface | null>(null);
+const StateContext = React.createContext<StateInterface>({
+  activeMenu: true,
+  setActiveMenu: (activeMenu) => {
+    return !activeMenu;
+  },
+});
 
 const ContextProvider: React.FC<{
   children: any;
@@ -56,22 +61,22 @@ const ContextProvider: React.FC<{
   return (
     <StateContext.Provider
       value={{
-        currentColor,
-        currentMode,
+        // currentColor,
+        // currentMode,
         activeMenu,
-        screenSize,
-        setScreenSize,
-        handleClick,
-        isClicked,
-        initialState,
-        setIsClicked,
+        // screenSize,
+        // setScreenSize,
+        // handleClick,
+        // isClicked,
+        // initialState,
+        // setIsClicked,
         setActiveMenu,
-        setCurrentColor,
-        setCurrentMode,
-        setMode,
-        setColor,
-        themeSettings,
-        setThemeSettings,
+        // setCurrentColor,
+        // setCurrentMode,
+        // setMode,
+        // setColor,
+        // themeSettings,
+        // setThemeSettings,
       }}
     >
       {children}
