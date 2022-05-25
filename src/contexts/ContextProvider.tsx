@@ -16,7 +16,7 @@ interface StateInterface {
   // screenSize: string | undefined;
   // setScreenSize: React.Dispatch<React.SetStateAction<any>>;
   handleClick: React.Dispatch<React.SetStateAction<any>>;
-  // isClicked: initialStateType;
+  isClicked: initialStateType;
   // initialState: initialStateType;
   // setIsClicked: React.Dispatch<React.SetStateAction<initialStateType>>;
   setActiveMenu: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,6 +32,7 @@ const StateContext = React.createContext<StateInterface>({
   currentColor: "#03C9D7",
   activeMenu: true,
   handleClick: () => "",
+  isClicked: initialState,
   setActiveMenu: (activeMenu) => {
     return !activeMenu;
   },
@@ -69,7 +70,7 @@ const ContextProvider: React.FC<{
         // screenSize,
         // setScreenSize,
         handleClick,
-        // isClicked,
+        isClicked,
         // initialState,
         // setIsClicked,
         setActiveMenu,
