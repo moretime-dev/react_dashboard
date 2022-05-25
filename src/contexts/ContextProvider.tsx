@@ -13,8 +13,8 @@ interface StateInterface {
   currentColor: string;
   // currentMode: string;
   activeMenu: boolean;
-  // screenSize: string | undefined;
-  // setScreenSize: React.Dispatch<React.SetStateAction<any>>;
+  screenSize: number | undefined;
+  setScreenSize: React.Dispatch<React.SetStateAction<any>>;
   handleClick: React.Dispatch<React.SetStateAction<any>>;
   isClicked: initialStateType;
   // initialState: initialStateType;
@@ -31,6 +31,8 @@ interface StateInterface {
 const StateContext = React.createContext<StateInterface>({
   currentColor: "#03C9D7",
   activeMenu: true,
+  screenSize: undefined,
+  setScreenSize: () => 0,
   handleClick: () => "",
   isClicked: initialState,
   setActiveMenu: (activeMenu) => {
@@ -67,8 +69,8 @@ const ContextProvider: React.FC<{
         currentColor,
         // currentMode,
         activeMenu,
-        // screenSize,
-        // setScreenSize,
+        screenSize,
+        setScreenSize,
         handleClick,
         isClicked,
         // initialState,
