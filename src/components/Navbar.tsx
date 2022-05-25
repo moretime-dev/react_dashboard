@@ -9,14 +9,13 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import avatar from "../data/avatar.jpg";
 import { Cart, Chat, Notification, UserProfile } from ".";
 import { useStateContext } from "../contexts/ContextProvider";
-import { IconType } from "react-icons/lib";
 
 interface NavButtonType {
   title: string;
   customFunc: () => void;
   icon: ReactNode;
   color: string;
-  dotColor: string;
+  dotColor?: string;
 }
 
 const NavButton: React.FC<NavButtonType> = ({
@@ -42,7 +41,8 @@ const NavButton: React.FC<NavButtonType> = ({
   </TooltipComponent>
 );
 const Navbar = () => {
-  const { activeMenu, setActiveMenu } = useStateContext();
+  const { currentColor, activeMenu, setActiveMenu, handleClick } =
+    useStateContext();
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
   return (
@@ -52,8 +52,29 @@ const Navbar = () => {
         customFunc={handleActiveMenu}
         color="blue"
         icon={<AiOutlineMenu />}
-        dotColor=""
       />
+      <div className="flex">
+        <NavButton
+          title="Cart"
+          customFunc={() => handleClick("cart")}
+          color={currentColor}
+          icon={<FiShoppingCart />}
+        />
+        <NavButton
+          title="Chat"
+          dotColor="#03C9D7"
+          customFunc={() => handleClick("cart")}
+          color={currentColor}
+          icon={<BsChatLeft />}
+        />{" "}
+        <NavButton
+          title="Notification"
+          dotColor="rgb(254, 201, 15)"
+          customFunc={() => handleClick("notification")}
+          color={currentColor}
+          icon={<RiNotification3Line />}
+        />
+      </div>
     </div>
   );
 };

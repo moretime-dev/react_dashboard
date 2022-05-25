@@ -10,12 +10,12 @@ const initialState = {
 type initialStateType = typeof initialState;
 
 interface StateInterface {
-  // currentColor: string;
+  currentColor: string;
   // currentMode: string;
   activeMenu: boolean;
   // screenSize: string | undefined;
   // setScreenSize: React.Dispatch<React.SetStateAction<any>>;
-  // handleClick: React.Dispatch<React.SetStateAction<any>>;
+  handleClick: React.Dispatch<React.SetStateAction<any>>;
   // isClicked: initialStateType;
   // initialState: initialStateType;
   // setIsClicked: React.Dispatch<React.SetStateAction<initialStateType>>;
@@ -29,7 +29,9 @@ interface StateInterface {
 }
 
 const StateContext = React.createContext<StateInterface>({
+  currentColor: "#03C9D7",
   activeMenu: true,
+  handleClick: () => "",
   setActiveMenu: (activeMenu) => {
     return !activeMenu;
   },
@@ -61,12 +63,12 @@ const ContextProvider: React.FC<{
   return (
     <StateContext.Provider
       value={{
-        // currentColor,
+        currentColor,
         // currentMode,
         activeMenu,
         // screenSize,
         // setScreenSize,
-        // handleClick,
+        handleClick,
         // isClicked,
         // initialState,
         // setIsClicked,
