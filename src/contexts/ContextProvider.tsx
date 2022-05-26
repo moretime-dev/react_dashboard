@@ -11,33 +11,37 @@ type initialStateType = typeof initialState;
 
 interface StateInterface {
   currentColor: string;
-  // currentMode: string;
+  currentMode: string;
   activeMenu: boolean;
   screenSize: number | undefined;
   setScreenSize: React.Dispatch<React.SetStateAction<any>>;
   handleClick: React.Dispatch<React.SetStateAction<any>>;
   isClicked: initialStateType;
-  // initialState: initialStateType;
-  // setIsClicked: React.Dispatch<React.SetStateAction<initialStateType>>;
+  initialState: initialStateType;
+  setIsClicked: React.Dispatch<React.SetStateAction<initialStateType>>;
   setActiveMenu: React.Dispatch<React.SetStateAction<boolean>>;
   // setCurrentColor: React.Dispatch<React.SetStateAction<string>>;
   // setCurrentMode: React.Dispatch<React.SetStateAction<string>>;
   // setMode: React.Dispatch<React.SetStateAction<any>>;
-  // setColor: React.Dispatch<React.SetStateAction<any>>;
+  setColor: React.Dispatch<React.SetStateAction<any>>;
   // themeSettings: boolean;
   // setThemeSettings: React.Dispatch<React.SetStateAction<any>>;
 }
 
 const StateContext = React.createContext<StateInterface>({
   currentColor: "#03C9D7",
+  currentMode: "light",
   activeMenu: true,
   screenSize: undefined,
   setScreenSize: () => 0,
   handleClick: () => "",
   isClicked: initialState,
+  initialState: initialState,
+  setIsClicked: () => initialState,
   setActiveMenu: (activeMenu) => {
     return !activeMenu;
   },
+  setColor: (color) => "white",
 });
 
 const ContextProvider: React.FC<{
@@ -67,19 +71,19 @@ const ContextProvider: React.FC<{
     <StateContext.Provider
       value={{
         currentColor,
-        // currentMode,
+        currentMode,
         activeMenu,
         screenSize,
         setScreenSize,
         handleClick,
         isClicked,
-        // initialState,
-        // setIsClicked,
+        initialState,
+        setIsClicked,
         setActiveMenu,
         // setCurrentColor,
         // setCurrentMode,
         // setMode,
-        // setColor,
+        setColor,
         // themeSettings,
         // setThemeSettings,
       }}
